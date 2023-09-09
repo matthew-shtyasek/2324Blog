@@ -1,0 +1,27 @@
+{% extends 'root.html' %}
+{% block content %}
+    {% if user.is_superuser %}
+        <a href="{% url 'admin:index' %}">admin</a>
+    {% endif %}
+    <div class="posts">
+    {%  for post in posts %}
+       <a href="{% url 'dog:table' post.id %}">
+        <div class="post">
+            <p>{{ post.name }}</p>
+            <p>{{ post.categories.all|join:', ' }}</p>
+            <p>{{ post.text | truncatewords:30}}...</p>
+            <p>{{ post.author }}</p>
+            <p>{{ post.create_date }}</p>
+        </div>
+       </a>
+    {% endfor %}
+    </div>
+    <div class="nav">
+    {% if page_obj.has_previous %}
+        <a href=".?page={{ page_obj.previous_page_number }}">&lt;</a>
+    {% endif %}
+    {% if page_obj.has_next %}
+        <a href=".?page={{ page_obj.next_page_number }}">&gt;</a>
+    {% endif %}
+    </div>
+{% endblock %}

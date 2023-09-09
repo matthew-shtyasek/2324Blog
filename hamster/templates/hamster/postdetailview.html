@@ -1,0 +1,13 @@
+{% extends 'root.html' %}
+{% block content %}
+
+    <h2>{{ post.name }}</h2>
+    <p>{{ post.categories.all|join:', ' }}</p>
+            <p>{{ post.text }}</p>
+            <p>{{ post.author }}</p>
+            <p>{{ post.create_date }}</p>
+
+    <p>{{ post.likes.count }}</p>
+    <a href="{% url 'dog:like' post.pk %}">like</a>
+
+{% endblock %}

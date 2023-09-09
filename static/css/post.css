@@ -1,0 +1,18 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.post p{
+
+    padding: 0% 1%;
+
+}
+.post{
+    border: black solid 2px;
+}
+
+.nav{
+    font-size: x-large;
+    font-weight: bolder;
+    text-align: center;
+}
